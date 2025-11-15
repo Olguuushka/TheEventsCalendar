@@ -9,13 +9,13 @@ public static class FavouriteEventConfiguration
         modelBuilder.Entity<FavouriteEventsEntity>().HasKey(u => u.Id);
 
         modelBuilder.Entity<FavouriteEventsEntity>().HasIndex(u => u.ExternalId).IsUnique();
-        modelBuilder.Entity<FavouriteEventsEntity>().HasIndex(u => new{u.fkUser,u.fkEvent}).IsUnique();
-        modelBuilder.Entity<FavouriteEventsEntity>().Property(u => u.fkEvent).IsRequired();
-        modelBuilder.Entity<FavouriteEventsEntity>().Property(u => u.fkUser).IsRequired();
+        modelBuilder.Entity<FavouriteEventsEntity>().HasIndex(u => new{u.FkUser,u.FkEvent}).IsUnique();
+        modelBuilder.Entity<FavouriteEventsEntity>().Property(u => u.FkEvent).IsRequired();
+        modelBuilder.Entity<FavouriteEventsEntity>().Property(u => u.FkUser).IsRequired();
         modelBuilder.Entity<FavouriteEventsEntity>().Property(u => u.DateOfChange).IsRequired();
         modelBuilder.Entity<FavouriteEventsEntity>().HasOne(fe => fe.Event).WithMany(u => u.FavouriteEvents)
-            .HasForeignKey(fe => fe.fkEvent);
+            .HasForeignKey(fe => fe.FkEvent);
         modelBuilder.Entity<FavouriteEventsEntity>().HasOne(fe => fe.User).WithMany(u => u.FavouriteEvents)
-            .HasForeignKey(fe => fe.fkUser);
+            .HasForeignKey(fe => fe.FkUser);
     }
 }

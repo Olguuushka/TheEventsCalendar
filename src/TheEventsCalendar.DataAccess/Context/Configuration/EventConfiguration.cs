@@ -17,7 +17,7 @@ public static class EventConfiguration
         modelBuilder.Entity<EventsEntity>().Property(u=>u.CreatedAt).IsRequired();
         modelBuilder.Entity<EventsEntity>().Property(u=>u.AgeLink).IsRequired();
         modelBuilder.Entity<EventsEntity>().Property(u=>u.UserId).IsRequired();
-        modelBuilder.Entity<EventsEntity>().HasOne(u => u.User).WithMany(e => e.Events).HasForeignKey(u => u.UserId);
+        //modelBuilder.Entity<EventsEntity>().HasOne(u => u.User).WithMany(e => e.Events).HasForeignKey(u => u.UserId);
 
     }
 }
